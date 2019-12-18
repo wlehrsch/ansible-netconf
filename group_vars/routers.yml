@@ -1,0 +1,7 @@
+---
+ansible_network_os: "ios"
+ansible_port: 10000
+ansible_user: root
+ansible_ssh_pass: D_Vay!_10&
+ansible_python_interpreter: /usr/local/bin/python3
+...

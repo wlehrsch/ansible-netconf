@@ -1,0 +1,20 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <interface>
+{% for interface in interfaces %}
+      <Loopback operation="replace">
+        <name>{{ interface.num }}</name>
+        <description>{{ interface.description }}</description>
+        <ip>
+          <address>
+            <primary>
+              <address>{{ interface.ip }}</address>
+              <mask>{{ interface.mask }}</mask>
+            </primary>
+          </address>
+        </ip>
+      </Loopback>
+{% endfor %}
+    </interface>
+  </native>
+</config>

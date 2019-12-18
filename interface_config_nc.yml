@@ -1,0 +1,15 @@
+---
+- name: "PLAY 1: Infrastructure-as-code using NETCONF"
+  hosts: all
+  connection: netconf
+  tasks:
+    - name: "TASK 1: Update Loopback interface with NETCONF"
+      netconf_config:
+        content: "{{ lookup('template', 'templates/interfaces.j2') }}"
+
+    - name: "TASK 2: Save configuration"
+      netconf_rpc:
+        xmlns: "http://cisco.com/yang/cisco-ia"
+        rpc: "save-config"
+      ignore_errors: true
+...
